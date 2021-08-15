@@ -70,7 +70,9 @@ function draw() {
   computerArcher.display()
 
   // Use for loop to display arrow using showArrow() function
-  showArrows();
+  for (let i = 0; i < playerArrows.length; i++) {
+    showArrows(playerArrows[i], i);
+  }
 }
 
 function keyPressed() {
@@ -99,12 +101,10 @@ function keyReleased () {
 
 }
 //Display arrow and Tranjectory
-function showArrows(arrows, index) {
-  for (let i = 0; i < playerArrows.length; i++) {
-    playerArrows[i].display();
-  }
-  if (arrows.body.position.x >= width || ball.body.position.y >= height - 50) {
-    Matter.World.remove(worl5nghd, arrows.body);
-    balls.splice(index, 1);
+function showArrows(arrow, index) {
+  arrow.display();
+  if (arrow.body.position.x >= width || arrow.body.position.y >= height) {
+    Matter.World.remove(world, arrow.body);
+    playerArrows.splice(index, 1);
   }
 }
