@@ -37,10 +37,6 @@ class PlayerArrow {
       this.trajectory.push(position);
     }
 
-    if(pos.y > height || pos.x > width) {
-      
-    }
-
     for(var i =  0; i < this.trajectory.length; i++) {
       fill("black");
       ellipse(this.trajectory[i][0], this.trajectory[i][1], 5, 5);
